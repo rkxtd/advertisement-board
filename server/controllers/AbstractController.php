@@ -31,7 +31,7 @@ class AbstractController
                     throw new Exception('Element with id `#' . $id . '` not found in the DataBase. Table: ' . $this->table);
                 }
             } else {
-                return $this->db->select($this->table)->all();
+                return $this->prepareResponse($this->db->select($this->table)->all());
             }
         } catch (Exception $e) {
             throw new RestException(500, $e->getMessage());
@@ -57,9 +57,16 @@ class AbstractController
 
             $this->db->delete($this->table, $id);
 
-            return ['id' => $id, 'status' => 'deleted', 'table' => $this->table];
+            return $this->prepareResponse(['id' => $id, 'status' => 'deleted', 'table' => $this->table]);
         } catch (Exception $e) {
             throw new RestException(500, $e->getMessage());
         }
+    }
+
+    protected function prepareResponse($responseObject) {
+        return [
+            'status'    => 'ok',
+            'items'     => $responseObject
+        ];
     }
 }
