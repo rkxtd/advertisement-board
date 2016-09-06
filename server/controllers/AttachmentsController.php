@@ -49,7 +49,7 @@ class AttachmentsController extends AbstractController
                 throw new Exception('Failed to move uploaded file.');
             }
 
-            $data['filepath'] = str_replace('..', '', $uploadedFilePath);
+            $data['filepath'] = str_replace('../../public', '', $uploadedFilePath);
             $data['created'] = $date->format('Y-m-d H:i:s');
 
             $this->db->create($this->table, $data)->select($this->table, '*', ['id'=> $this->db->id()]);

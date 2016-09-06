@@ -31,7 +31,7 @@ class AbstractController
                     throw new Exception('Element with id `#' . $id . '` not found in the DataBase. Table: ' . $this->table);
                 }
             } else {
-                return $this->prepareResponse($this->db->select($this->table)->all());
+                return $this->prepareResponse($this->db->select($this->table, '*', $_GET)->all());
             }
         } catch (Exception $e) {
             throw new RestException(500, $e->getMessage());

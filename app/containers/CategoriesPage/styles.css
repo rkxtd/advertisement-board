@@ -1,0 +1,35 @@
+.list {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  padding-left: 1.75em;
+  align-items: center;
+  justify-content: center;
+}
+
+.listItem {
+  margin: 1em 0;
+  display: inline-flex;
+  width: 240px;
+  min-width: 240px;
+}
+
+.selectedItem {
+  border-radius: 25px;
+  background: #92E5FC;
+  opacity: 0.95;
+}
+
+.listItem a {
+  display: block;
+  margin: 0 auto;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.listItem a img {
+  display: block;
+  margin: 0 auto;
+}
+
+.listItemTitle {
+  font-weight: bold;
+}

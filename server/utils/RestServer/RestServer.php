@@ -382,6 +382,8 @@ class RestServer
 
 	public function sendData($data)
 	{
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
 		header("Cache-Control: no-cache, must-revalidate");
 		header("Expires: 0");
 		header('Content-Type: ' . $this->format);
