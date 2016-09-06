@@ -1,7 +1,10 @@
 node_modules
-public/build
-public/uploads
+!public/api
+!public/uploads
+public/
+public/uploads/*
 server/vendor
+coverage/
 .idea
 npm-debug.log
 composer.phar
